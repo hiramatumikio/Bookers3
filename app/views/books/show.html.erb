@@ -1,0 +1,40 @@
+<%= render 'users/list', book: @book, user: @bookd.user %>
+<h1>book/show</h1>
+<% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+<% if current_user.errors.any? %>
+<% p current_user %>
+<% p current_user.errors %>
+  <% current_user.errors.full_messages.each do |error| %>
+  <% p error %>
+    <%= error %>
+  <% end %>
+<% end %>
+<div class="d-flex align-items-center">
+  <h2>Books</h2>
+  <table class="table table-bordered bordr-primary table-hover table-sm books_table">
+    <thead class="thead-dark">
+      <tr>
+        <tr scope=></tr>
+        <tr scope="col">Title</tr>
+        <tr scope="col">Opinion</tr>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>
+          <%= link_to @bookd.user.name, user_path(@bookd.user.id), %>
+          <%= @bookd.title %>
+        </td>
+        <td><%= @bookd.body %></td>
+        <% if @bookd.user.id == current_user.id %>
+        <td><%= link_to "edit", edit_book_path(@bookd.id) %>
+        <td><%= link_to "Destroy", book_path(@bookd),method: :delete,"data-confirm" => "本当に消しますか？" %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>

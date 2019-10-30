@@ -1,0 +1,30 @@
+    <% if @book.errors.any? %>
+  <% @book.errors.full_messages.each do |error| %>
+  <p>error</p>
+    <%= error %>
+  <% end %>
+<% end %>
+
+<h2>Editing Book</h2>
+<% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+<%= form_for @book do |f| %>
+
+  <p>
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title %>
+  </p>
+
+  <P>
+    <%= f.label :text, "Opinion" %>
+    <%= f.text_area :body, cols: 60, rows: 8 %>
+  </P>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+  <% end %>

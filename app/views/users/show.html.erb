@@ -1,0 +1,19 @@
+<%= render 'users/list', book: @book, user: @user %>
+
+<div class="d-flex align-items-center">
+  <h2>Books</h2>
+  <table class="table table-bordered bordr-primary table-hover table-sm books_table">
+    <thead class="thead-dark">
+      <tr>
+        <tr scope=></tr>
+        <tr scope="col">Title</tr>
+        <tr scope="col">Opinion</tr>
+      </tr>
+    </thead>
+    <% @books.each do |book| %>
+        <td></td>
+        <td><%= link_to book.title, book_path(book.id) %></td>
+        <td><%= book.body %></td>
+    <% end %>
+  </table>
+

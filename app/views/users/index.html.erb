@@ -1,0 +1,19 @@
+<%= render 'users/list', book: @book, user: current_user %>
+<table>
+	<caption></caption>
+	<thead>
+		<tr>
+			<th>image</th>
+			<th>name</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |f| %>
+		<tr>
+			<td><%= attachment_image_tag f, :profile_image %></td>
+			<td><%= link_to f.name, user_path(f.id) %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

@@ -1,0 +1,11 @@
+welcome to Bookers !!
+
+<% if flash.any? %>
+ <% flash.each do |f| %>
+  <%= f[1] %>
+  <% end %>
+<% end %>
+
+      <%= link_to "login", new_user_session_path %>
+
+     <%= link_to "sign up", new_user_registration_path %>
