@@ -1,4 +1,5 @@
 <div class="profile-container">
+  <div class="col-xs-3">
   <% if flash[:notice] %>
       <div class="flash">
         <%= flash[:notice] %>
@@ -10,32 +11,45 @@
     <%= error %>
   <% end %>
 <% end %>
-  <%= attachment_image_tag user, :profile_image, :fill, 30, 30, format:'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
-  <h3 class="profile-name"><%= user.name %></h3>
-  <h3 class="profile-name"><%= user.introduction %></h3>
+<h2>User info</h2>
+  <%= attachment_image_tag @book.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg",size:"40x40" %>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>name</th>
+  <th class="profile-name"><%= user.name %></th>
+      </tr>
+      <tr>
+        <th class="profile-name">introduction<%= user.introduction %></th>
+        <th></th>
+      </tr>
+    </tbody>
+  </table>
 
   <% if user == current_user %>
-  <p><%= link_to "プロフィール", edit_user_path(user.id)%></p>
+  <p><%= link_to "", edit_user_path(user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_9407" %></p>
   <% end %>
 
-<h2>User info</h2>
  <div class="-">
 
 <h2>New book</h2>
 <%= form_for book do |f| %>
 
-  <p>
+  <div class="field row">
     <%= f.label :title, "Title" %>
     <%= f.text_field :title %>
-  </p>
+  </div>
 
-  <P>
+  <div class="field row">
     <%= f.label :text, "Opinion" %>
-    <%= f.text_area :body, cols: 60, rows: 8 %>
-  </P>
+    <%= f.text_area :body, cols: 30, rows: 8 %>
+  </div>
 
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class="actions row">
+   <input type="submit" name="commit" value="Create Book" class="btn btn-primary col-xs-12" data-disable-with="Create Book">
+  </div>
 
   <% end %>
+</div>
+</div>
+</div>

@@ -75,3 +75,6 @@ group :test do
     gem 'shoulda-matchers'
     gem 'rails-controller-testing'
 end
+
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'
